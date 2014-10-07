@@ -1,0 +1,209 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FlumeConfig</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <!-- endbuild -->
+
+    <!-- build:css styles/vendor.css -->
+    <link rel="stylesheet" type="text/css" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <!-- endbuild -->
+</head>
+
+<body data-demo-id="flowchart" data-library="jquery">
+    <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div class="my-fluid-container">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="page-header" style="margin: 10px 0px 10px; padding: 0px">
+                    <h2>
+                        <img src="images/flume-logo.png" width="64" height="64" />&nbsp;Flume Configurator
+                    </h2>
+                </div>
+                <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 9px;">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <button type="button" class="btn btn-default navbar-btn" id="saveMenuButton">Save</button>
+                        <button type="button" class="btn btn-default navbar-btn" id="loadMenuButton">Load</button>
+                        <button type="button" class="btn btn-default navbar-btn" id="clearCanvasMenuButton">Clear Canvas</button>
+                        <button type="button" class="btn btn-default" id="newAgentButton">New Agent</button>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help<strong class="caret"></strong></a>
+                                <ul class="dropdown-menu">
+
+                                    <li>
+                                        <a href="#">Docs</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">About</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                </nav>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-md-2 column">             
+                <div class="panel-group" id="panel-915875">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-915875" href="#sourcesNavPanel">Sources</a>
+                        </div>
+                        <div id="sourcesNavPanel" class="panel-collapse in">
+                            <div id="sourcesNavPanelBody" class="panel-body">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a class="panel-title" data-toggle="collapse" data-parent="#panel-915875" href="#channelsNavPanel">Channels</a>
+                        </div>
+                        <div id="channelsNavPanel" class="panel-collapse collapse">
+                            <div id="channelsNavPanelBody" class="panel-body">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a class="panel-title" data-toggle="collapse" data-parent="#panel-915875" href="#sinksNavPanel">Sinks</a>
+                        </div>
+                        <div id="sinksNavPanel" class="panel-collapse collapse">
+                            <div id="sinksNavPanelBody" class="panel-body">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a class="panel-title" data-toggle="collapse" data-parent="#panel-915875" href="#interceptorsNavPanel">Interceptors</a>
+                        </div>
+                        <div id="interceptorsNavPanel" class="panel-collapse collapse">
+                            <div id="interceptorsNavPanelBody" class="panel-body">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a class="panel-title" data-toggle="collapse" data-parent="#panel-915875" href="#selectorsNavPanel">Selectors</a>
+                        </div>
+                        <div id="selectorsNavPanel" class="panel-collapse collapse">
+                            <div id="selectorsNavPanelBody" class="panel-body">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a class="panel-title" data-toggle="collapse" data-parent="#panel-915875" href="#othersNavPanel">Others</a>
+                        </div>
+                        <div id="othersNavPanel" class="panel-collapse collapse">
+                            <div id="othersNavPanelBody" class="panel-body">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10 column">
+                <div id="errorPanel">
+                </div>
+                <div id="canvas" class="resizeable"></div>
+                <div id="selectedNode"></div>
+                <br/>
+                <div class="tabbable" id="tabs-633686">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#nodePropertyPanel" data-toggle="tab">Properties</a>
+                        </li>
+                        <li>
+                            <a href="#panel-500395" data-toggle="tab">Config File</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active panel panel-default tabContent" id="nodePropertyPanel">
+
+                        </div>
+                        <div class="tab-pane panel panel-default tabContent" id="panel-500395">
+                            <p id="flumeConfigOutputPanel">
+                                This will be where the raw text of the config file is shown. This is a preview of what the Fluem config file will look like when saved.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /container -->
+    <!-- Modal -->
+    <div class="modal" id="pageLoadingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" style="width:100%; height:100%;">
+                    <center>
+                        <h2>Loading</h2>
+                    </center>
+                    <img src="/images/ajax-loader.gif" style="display: block; margin: 0 auto;" />
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
+    <!-- Tooltips -->
+    <div class="tooltip" id="agentTooltip">A container for hosting Sources, Channels, Sinks and other components that enable the transportation of events from one place to another.</div>
+    <div class="tooltip" id="sourceTooltip">An active component that receives events from a specialized location or mechanism and places it on one or more Channels.</div>
+    <div class="tooltip" id="channelTooltip">A passive component that buffers the incoming events until they are drained by Sinks.</div>
+    <div class="tooltip" id="sinkTooltip">An active component that removes events from a Channel and transmits them to their next hop destination.</div>
+    <div class="tooltip" id="interceptorTooltip">Interceptors are applied to a source in predetermined order to enable decorating and filtering of events where necessary.</div>
+    <div class="tooltip" id="channelSelectorTooltip">Channel Selector facilitates the selection of one or more Channels from all the configured channels, based on preset criteria.</div>
+    <div class="tooltip" id="sinkProcessorTooltip">Sink Processor is responsible for invoking one sink from a specified group of Sinks.</div>
+    <!-- /Tooltips -->
+    <svg height="0" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <filter id="glow">
+                <feflood result="flood" flood-color="rgb(241,194,50)" flood-opacity="0.9"></feflood>
+                <fecomposite in2="SourceGraphic" operator="in" in="flood" result="composite1"></fecomposite>
+                <fegaussianblur in="composite1" result="blur" stddeviation="3"></fegaussianblur>
+                <feoffset in="blur" result="offset" dy="0" dx="0"></feoffset>
+                <fecomposite in2="offset" operator="over" in="SourceGraphic" result="composite2"></fecomposite>
+            </filter>
+        </defs>
+    </svg>
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/jsPlumb/dist/js/jquery.jsPlumb-1.5.5.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/plugins.js -->
+    <!-- endbuild -->
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/Flume/Flume.js"></script>
+    <script src="scripts/Flume/Connect3.js"></script>
+    <!-- endbuild -->
+</body>
+</html>

@@ -1,0 +1,203 @@
+<html>
+<head>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+.MsoChpDefault
+	{font-family:"Calibri","sans-serif";}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+<body>
+<h1>Flume Connections</h1><br/>
+The following chart explains what Flume node can connect to what other Flume node
+<p align="center">
+<table border=1 cellspacing=0 cellpadding=10 width="90%">
+<tr>
+  <td width="28%"><p>&nbsp;</p></td>
+  <td colspan=6>
+    <p align=center><b>Can Connect to</b></p>
+  </td>
+</tr>
+<tr align=center>
+  <td width="12%"><p>&nbsp;</p></td>
+  <td width="12%">
+    <p>Source</p>
+  </td>
+  <td width="12%">
+    <p>Channel</p>
+  </td>
+  <td width="12%">
+    <p>Sink</p>
+  </td>
+  <td width="12%">
+    <p>Interceptor</p>
+  </td>
+  <td width="12%">
+    <p>Channel Selector</p>
+  </td>
+  <td width="12%">
+    <p>Sink Processor</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p>Source</p>
+  </td>
+  <td>
+  <p align=center>&nbsp;-</p>
+  </td>
+  <td>
+  <p align=center>1+</p>
+  </td>
+  <td>
+  <p align=center>-</p>
+  </td>
+  <td>
+  <p align=center>0+&nbsp;</p>
+  </td>
+  <td>
+  <p align=center>&nbsp;1</p>
+  </td>
+  <td>
+  <p align=center>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p>Channel (must have at least 1 source or 1 sink otherwise
+  it is a validation error)</p>
+  </td>
+  <td>
+  <p align=center>0+&nbsp;</p>
+  </td>
+  <td>
+  <p align=center>&nbsp;-</p>
+  </td>
+  <td>
+  <p align=center>0+ (the sinks compete)</p>
+  </td>
+  <td>
+  <p align=center>-&nbsp;</p>
+  </td>
+  <td>
+  <p align=center>-&nbsp;</p>
+  </td>
+  <td>
+  <p align=center>-</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p>Sink</p>
+  </td>
+  <td>
+  <p align=center>-</p>
+  </td>
+  <td>
+  <p align=center>&nbsp;1</p>
+  </td>
+  <td>
+  <p align=center>&nbsp;-</p>
+  </td>
+  <td>
+  <p align=center>-&nbsp;</p>
+  </td>
+  <td>
+  <p align=center>-&nbsp;</p>
+  </td>
+  <td>
+  <p align=center>1&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p>Interceptor</p>
+  </td>
+  <td>
+  <p align=center>&nbsp;1</p>
+  </td>
+  <td>
+  <p align=center>&nbsp;-</p>
+  </td>
+  <td>
+  <p align=center>-&nbsp;</p>
+  </td>
+  <td>
+  <p align=center>0+ (interceptors are chainable and execute in a specified order)&nbsp;</p>
+  </td>
+  <td>
+  <p align=center>&nbsp;channel selector &quot;belongs&quot; to the source but is inline after all interceptors run, so interceptors can influence routing decisions</p>
+  </td>
+  <td>
+  <p align=center>-&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p>Channel Selector</p>
+  </td>
+  <td>
+  <p align=center>1&nbsp;</p>
+  </td>
+  <td>
+  <p align=center>1+</p>
+  </td>
+  <td>
+  <p align=center>&nbsp;-</p>
+  </td>
+  <td>
+  <p align=center>&nbsp;-</p>
+  </td>
+  <td>
+  <p align=center>-&nbsp;</p>
+  </td>
+  <td>
+  <p align=center>-&nbsp;</p>
+  </td>
+ </tr>
+ <tr style='height:16pt'>
+  <td>
+  <p>Sink Processor (this component should really be called a sink policy because it can round robin between multiple sinks and stuff like that. It really just decides which sink gets to run at any given moment and there is one of these per sink group and sink runner. The sink runner is 1 thread and runs this side of things.)</p>
+  </td>
+  <td>
+  <p align=center>&nbsp;-</p>
+  </td>
+  <td>
+  <p align=center>-&nbsp;</p>
+  </td>
+  <td>
+  <p align=center>1+</p>
+  </td>
+  <td>
+  <p align=center>&nbsp;-</p>
+  </td>
+  <td>
+  <p align=center>&nbsp;-</p>
+  </td>
+  <td>
+  <p align=center>-&nbsp;</p>
+  </td>
+ </tr>
+</table>
+</p>
+</body>
+</html>

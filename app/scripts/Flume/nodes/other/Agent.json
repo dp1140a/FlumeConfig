@@ -1,0 +1,16 @@
+{
+	"name": "myAgent",
+	"id": "",
+	"printName": "Agent",
+	"description": "A container for hosting Sources, Channels, Sinks and other components that enable the transportation of events from one place to another.",
+	"type": "agent",
+	"category": "agent",
+	"nodes": {
+		"sources": [],
+		"channels": [],
+		"sinks": [],
+		"interceptors": [],
+		"selectors": []
+	},
+	"connections": {}
+}

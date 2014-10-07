@@ -1,0 +1,10 @@
+{
+    "name": "loggerSink",
+    "id": "",
+    "printName": "Logger Sink",
+    "description": "Logs event at INFO level. Typically useful for testing/debugging purpose. Required properties are in bold.",
+    "type": "logger",
+    "category": "sinks",
+    "configProperties": {
+    }
+}

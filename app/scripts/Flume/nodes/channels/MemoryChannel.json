@@ -1,0 +1,50 @@
+{
+    "name": "",
+    "id": "",
+    "printName": "Memory Channel",
+    "description": "The events are stored in an in-memory queue with configurable max size. It’s ideal for flows that need higher throughput and are prepared to lose the staged data in the event of a agent failures. Required properties are in bold.",
+    "type": "memory",
+    "category": "channels",
+    "configProperties": {
+        "capacity": {
+        	"name": "capacity",
+        	"printName": "Capacity",
+        	"value": 100,
+        	"valueType": "Number",
+        	"required": false,
+        	"description": "The maximum number of events stored in the channel"
+        },
+        "transactionCapacity": {
+            "name": "transactionCapacity",
+            "printName": "Transaction Capacity",
+            "value": 100,
+            "valueType": "Number",
+            "required": false,
+            "description": "The maximum number of events the channel will take from a source or give to a sink per transaction."
+        },
+        "keepAlive": {
+            "name": "keep-alive",
+            "printName": "Keep Alive",
+            "value": 3,
+            "valueType": "Number",
+            "required": false,
+            "description": "Timeout in seconds for adding or removing an event."
+        },
+        "byteCapacityBufferPercentage": {
+            "name": "byteCapacityBufferPercentage",
+            "printName": "Byte Capacity Buffer Percentage",
+            "value": 20,
+            "valueType": "Number",
+            "required": false,
+            "description": "Defines the percent of buffer between byteCapacity and the estimated total size of all events in the channel, to account for data in headers. See byteCapacity"
+        },
+        "byteCapacity": {
+            "name": "byteCapacity",
+            "printName": "Byte Capacity",
+            "value": 0,
+            "valueType": "Number",
+            "required": false,
+            "description": "Maximum total bytes of memory allowed as a sum of all events in this channel. The implementation only counts the Event body, which is the reason for providing the byteCapacityBufferPercentage configuration parameter as well. Defaults to a computed value equal to 80% of the maximum memory available to the JVM (i.e. 80% of the -Xmx value passed on the command line). Note that if you have multiple memory channels on a single JVM, and they happen to hold the same physical events (i.e. if you are using a replicating channel selector from a single source) then those event sizes may be double-counted for channel byteCapacity purposes. Setting this value to 0 will cause this value to fall back to a hard internal limit of about 200 GB."
+        }
+    }
+}

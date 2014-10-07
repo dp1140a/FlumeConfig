@@ -1,0 +1,21 @@
+{
+	"name": "flumeconfig",
+	"version": "0.0.5",
+	"description": "A Visual Flume Configuration Editor",
+	"version": "0.0.0",
+	"license": "MIT",
+	"private": true,
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"test",
+		"tests"
+	],
+	"dependencies": {
+		"jquery-ui": "~1.10.3",
+		"jsPlumb": "~1.5.3",
+		"underscore": "~1.5.2",
+		"bootstrap": "~3.0.3"
+	},
+	"devDependencies": {}
+}

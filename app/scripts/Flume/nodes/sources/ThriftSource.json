@@ -1,0 +1,34 @@
+{
+    "name": "myThriftSource",
+    "id": "",
+    "printName": "Thrift Source",
+    "description": "Listens on Thrift port and receives events from external Thrift client streams. When paired with the built-in ThriftSink on another (previous hop) Flume agent, it can create tiered collection topologies.",
+    "type": "thrift",
+    "category": "sources",
+    "configProperties": {
+        "bind": {
+        	"name": "bind",
+        	"printName": "Bind",
+        	"value": "",
+        	"valueType": "String",
+        	"required": true,
+        	"description": "hostname or IP address to listen on"
+        },
+        "port": {
+        	"name": "port",
+        	"printName": "Port",
+        	"value": "",
+        	"valueType": "String",
+        	"required": true,
+        	"description": "Port # to bind to"
+        },
+        "threads":{
+        	"name": "threads",
+        	"printName": "Threads",
+        	"value": "",
+        	"valueType": "String",
+        	"required": false,
+        	"description": "Maximum number of worker threads to spawn"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "name": "replicatingChannelSelector",
+    "id": "",
+    "printName": "Replicating Selector",
+    "description": ".",
+    "type": "replicating",
+    "category": "selectors",
+    "configProperties": {
+        "selectorType": {
+            "name": "selector.type",
+            "printName": "Selector Type",
+            "value": "replicating",
+            "valueType": "String",
+            "required": false,
+            "description": "The component type name, needs to be replicating"
+        },
+        "selectorOptional": {
+            "name": "selector.optional",
+            "printName": "Selector Optional",
+            "value": "",
+            "valueType": "String",
+            "required": false,
+            "description": "Comma separated list of channels to be marked as optional"
+        }
+    }
+}

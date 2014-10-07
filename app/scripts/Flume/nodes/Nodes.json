@@ -1,0 +1,9 @@
+{
+	"nodes": {
+		"sources": ["AvroSource.json", "ExecSource.json", "ThriftSource.json"],
+		"sinks": ["LoggerSink.json", "ThriftSink.json"],
+		"channels": ["JDBCChannel.json", "MemoryChannel.json"],
+		"interceptors": ["TimestampInterceptor.json"],
+		"selectors": ["ReplicatingChannelSelector.json"]
+	}
+}

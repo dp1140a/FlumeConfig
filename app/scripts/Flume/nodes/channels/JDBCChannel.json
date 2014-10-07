@@ -1,0 +1,122 @@
+{
+	"name": "JDBCChannel",
+	"id": "",
+	"printName": "JDBC Channel",
+	"description": "The events are stored in a persistent storage that’s backed by a database. The JDBC channel currently supports embedded Derby. This is a durable channel that’s ideal for flows where recoverability is important. Required properties are in bold.",
+	"type": "jdbc",
+	"category": "channels",
+	"configProperties": {
+		"dbType": {
+			"name": "db.type",
+			"printName": "Db Type",
+			"value": "DERBY",
+			"valueType": "String",
+			"required": false,
+			"description": "Database vendor, needs to be DERBY."
+		},
+		"driverClass": {
+			"name": "driver.class",
+			"printName": "Driver Class",
+			"value": "org.apache.derby.jdbc.EmbeddedDriver",
+			"valueType": "String",
+			"required": false,
+			"description": "Class for vendor’s JDBC driver"
+		},
+		"driverURL": {
+			"name": "driver.url",
+			"printName": "Driver URL",
+			"value": "",
+			"valueType": "String",
+			"required": false,
+			"description": "JDBC connection URL"
+		},
+		"dbUsername": {
+			"name": "db.username",
+			"printName": "DB Username",
+			"value": "sa",
+			"valueType": "String",
+			"required": false,
+			"description": "User id for db connection"
+		},
+		"dbPassword": {
+			"name": "db.password",
+			"printName": "DB Username",
+			"value": "",
+			"valueType": "String",
+			"required": false,
+			"description": "Password for db connection"
+		},
+		"connectionPropertiesFile": {
+			"name": "connection.properties.file",
+			"printName": "Connection Properties File",
+			"value": "",
+			"valueType": "String",
+			"required": false,
+			"description": "JDBC Connection property file path"
+		},
+		"createSchema": {
+			"name": "create.schema",
+			"printName": "Create Schema",
+			"value": true,
+			"valueType": "Boolean",
+			"required": false,
+			"description": "If true, then creates db schema if not there"
+		},
+		"createIndex": {
+			"name": "create.index",
+			"printName": "Create Index",
+			"value": true,
+			"valueType": "Boolean",
+			"required": false,
+			"description": "Create indexes to speed up lookups"
+		},
+		"createForeignKey": {
+			"name": "create.foreignkey",
+			"printName": "Create Index",
+			"value": true,
+			"valueType": "Boolean",
+			"required": false,
+			"description": ""
+		},
+		"transactionIsolation": {
+			"name": "transaction.isolation",
+			"printName": "Transaction Isolation",
+			"value": "READ_COMMITTED",
+			"valueType": "String",
+			"required": false,
+			"description": "Isolation level for db session READ_UNCOMMITTED, READ_COMMITTED, SERIALIZABLE, REPEATABLE_READ"
+		},
+		"maximumConnections": {
+			"name": "maximum.connections",
+			"printName": "Maximum Connections",
+			"value": 10,
+			"valueType": "Number",
+			"required": false,
+			"description": "Max connections allowed to db"
+		},
+		"maximumCapacity": {
+			"name": "maximum.capacity",
+			"printName": "Maximum Capacity",
+			"value": 0,
+			"valueType": "Number",
+			"required": false,
+			"description": "Max number of events in the channel"
+		},
+		"sysprop": {
+			"name": "sysprop",
+			"printName": "Sysprop",
+			"value": "",
+			"valueType": "String",
+			"required": false,
+			"description": "DB Vendor specific properties"
+		},
+		"syspropUserHome": {
+			"name": "sysprop.user.home",
+			"printName": "Sysprop User Home",
+			"value": "",
+			"valueType": "String",
+			"required": false,
+			"description": "Home path to store embedded Derby database"
+		}
+	}
+}

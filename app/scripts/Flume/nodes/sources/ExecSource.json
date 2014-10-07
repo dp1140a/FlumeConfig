@@ -1,0 +1,58 @@
+{
+	"name": "execSource",
+	"id": "",
+	"printName": "Exec Source",
+	"description": "Exec source runs a given Unix command on start-up and expects that process to continuously produce data on standard out (stderr is simply discarded, unless property logStdErr is set to true). If the process exits for any reason, the source also exits and will produce no further data. This means configurations such as cat [named pipe] or tail -F [file] are going to produce the desired results where as date will probably not - the former two commands produce streams of data where as the latter produces a single event and exits.",
+	"type": "exec",
+	"category": "sources",
+	"configProperties": {
+		"command": {
+			"name": "command",
+			"printName": "Command",
+			"value": "",
+			"valueType": "String",
+			"required": true,
+			"description": "The command to execute"
+		},
+		"shell": {
+			"name": "shell",
+			"printName": "Shell",
+			"value": "",
+			"valueType": "String",
+			"required": false,
+			"description": "A shell invocation used to run the command. e.g. /bin/sh -c. Required only for commands relying on shell features like wildcards, back ticks, pipes etc."
+		},
+		"restartThrottle": {
+			"name": "restartThrottle",
+			"printName": "Restart Throttle",
+			"value": 10000,
+			"valueType": "Number",
+			"required": false,
+			"description": "Amount of time (in millis) to wait before attempting a restart"
+		},
+		"restart": {
+			"name": "restart",
+			"printName": "Restart",
+			"value": false,
+			"valueType": "Boolean",
+			"required": false,
+			"description": "Whether the executed cmd should be restarted if it dies"
+		},
+		"logStdErr": {
+			"name": "logStdErr",
+			"printName": "Log to Standard Error",
+			"value": false,
+			"valueType": "Boolean",
+			"required": false,
+			"description": "Whether the command’s stderr should be logged"
+		},
+		"batchSize": {
+			"name": "batchSize",
+			"printName": "Batch Size",
+			"value": 20,
+			"valueType": "Number",
+			"required": false,
+			"description": "The max number of lines to read and send to the channel at a time"
+		}
+	}
+}

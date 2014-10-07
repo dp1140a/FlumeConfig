@@ -1,9 +1,8 @@
 {
 	"name": "flumeconfig",
-	"version": "0.0.5",
+	"version": "0.1.0",
 	"description": "A Visual Flume Configuration Editor",
-	"version": "0.0.0",
-	"license": "MIT",
+	"license": "Apache",
 	"private": true,
 	"ignore": [
 		"**/.*",

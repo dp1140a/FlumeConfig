@@ -15,6 +15,13 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         // configurable paths
+        bump: {
+            options: {
+                files: ['package.json','bower.json'],
+                commit: false,
+                push: false
+            }
+        },
         yeoman: {
             app: 'app',
             dist: 'dist',
@@ -196,7 +203,7 @@ module.exports = function(grunt) {
                     cwd: '<%= yeoman.app %>/bower_components/',
                     src: '**/*.{png}',
                     dest: '<%= yeoman.dist %>/styles'
-                },{
+                }, {
                     expand: true,
                     cwd: '<%= yeoman.app %>/images',
                     src: '{,*/}*.{png}',
@@ -274,7 +281,7 @@ module.exports = function(grunt) {
                         'bower_components/sass-bootstrap/fonts/*.*',
                         'scripts/Flume/nodes/{,*/}*.*'
                     ]
-                },{
+                }, {
                     expand: true,
                     dot: true,
                     dest: '<%= yeoman.dist %>',
@@ -351,6 +358,11 @@ module.exports = function(grunt) {
         'rev',
         'usemin'
     ]);
+
+    grunt.registerTask('dist',[
+        'build',
+        'bump:minor'
+        ]);
 
     grunt.registerTask('default', [
         'jshint',

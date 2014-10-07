@@ -32,10 +32,10 @@ grunt serve
 7. Copy the text and use as you would normally for Flume
 
 **To-Do:**
-[]Finish creating json files for all sources, channels, sinks, etc.
-[]Tooltips
-[]Implement Saving and Loading of Configs -- Either locally or implement persistence
-[]Better mechanism for deletion of node connections
-[]Integrate into Ambari
-[]Better Node Graphics on Left Accordians
-[]Testing, testing, testing
+- [ ]Finish creating json files for all sources, channels, sinks, etc.
+- [ ]Tooltips
+- [ ]Implement Saving and Loading of Configs -- Either locally or implement persistence
+- [ ]Better mechanism for deletion of node connections
+- [ ]Integrate into Ambari
+- [ ]Better Node Graphics on Left Accordians
+- [ ]Testing, testing, testing

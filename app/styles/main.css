@@ -17,6 +17,7 @@
     border-radius: 4px;
     height: 480px;
     position: relative;
+    outline: 0;
 
 }
 ._jsPlumb_connector {

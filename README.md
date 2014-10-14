@@ -33,9 +33,20 @@ grunt serve
 
 **To-Do:**
 - [ ]Finish creating json files for all sources, channels, sinks, etc.
-- [ ]Tooltips
+- [ ]Implement Tooltips
+- [ ]Implement config property field validaiton
+- [ ]Implement drag select on the canvas
+- [ ]Implement 'right click' functionality
 - [ ]Implement Saving and Loading of Configs -- Either locally or implement persistence
 - [ ]Better mechanism for deletion of node connections
 - [ ]Integrate into Ambari
 - [ ]Better Node Graphics on Left Accordians
 - [ ]Testing, testing, testing
+- [ ]Documentation
+- [X]Change Connection Delete code to handle keyup -- Requires selection of svg element
+- [X]Fix node and agent Positioning on window or canvas resize
+- [ ]add notes property to agent, nodes, and all configProperties
+- [ ]Make a dummy config that will load on pageLoad
+- [ ]Config Properties Validations
+- [ ]Connector Rules for Interceptors, and Selectors
+- [ ]Create Grey Style for Other Category

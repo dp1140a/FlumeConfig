@@ -82,23 +82,46 @@ FLUME.connect = (function($, _, jsPlumb) {
      *	Modify this to just set as selected and set keyup handler
      *
      **/
-    jsPlumb.bind("click", function(conn, event) {
-        conn.addClass("selectedConnector");
-        //$(event.target.parentNode).prepend(svgFilter);
-        //$(event.target.parentNode).children().addClass("selectedConnector");
-        //$(event.target).parent().prepend(svgFilter);
-        //$(event.target + " ~ path").attr("filter", "url('#filter4017')");
-        //conn.repaint();
-
-        if (confirm("Delete connection from " + conn.source.innerText + " to " + conn.target.innerText + "?")) {
+    var removeConnection = function(e) {
+        e.stopPropagation();
+        console.log(e);
+        var conn = e.data;
+        var isSelected = /selectedConnector/i.test($("#" + conn.id).attr("class"));
+        if ((e.which == 8 || e.which == 46) && isSelected) {
             var parentAgent = $("#" + conn.sourceId).parent().data("agent");
             parentAgent.removeConnection(conn.sourceId, conn.targetId);
             jsPlumb.detach(conn); //Remove connection from jsPlumb UI
             writeConfig(parentAgent);
+            //$("#canvas").off("keyup.removeConnection");
         }
+        return false;
+    };
+
+    jsPlumb.bind("click", function(conn, event) {
+        /**
+         * _.findWhere($._data($("#canvas").get(0), "events").keyup, {namespace: "removeConnection"})
+         * This returns the removeConnection event handler for the canvas
+         * or undefined if it has not been set yet
+         *
+         * if(_.findWhere($._data($("#canvas").get(0), "events").keyup, {namespace: "removeConnection"}) === undefined)
+         *		$("#canvas").on("keyup.removeConnection", conn, removeConnection);
+         * else
+         *		_.findWhere($._data($("#canvas").get(0), "events").keyup, {namespace: "removeConnection"}).data = conn
+         **/
+        $(".selectedNode").toggleClass("selectedNode").removeClass("active");
+        jsPlumb.select().removeClass("selectedConnector");
+        conn.addClass("selectedConnector");
+        conn.canvas.id = conn.id;
+        if (_.findWhere($._data($("#canvas").get(0), "events").keyup, {namespace: "removeConnection"}) === undefined) {
+            $("#canvas").on("keyup.removeConnection", conn, removeConnection);
+        } else {
+            _.findWhere($._data($("#canvas").get(0), "events").keyup, {namespace: "removeConnection"}).data = conn;
+        }
+        //$("#canvas").on("keyup.removeConnection", conn, removeConnection);
+        //document.documentElement.addEventListener("keyup", removeConnection, false);
     });
 
-    /**
+    /**     
      *	Make Connection
      *
      **/
@@ -134,7 +157,7 @@ FLUME.connect = (function($, _, jsPlumb) {
         var agent = FLUME.getAgentInstance();
         var agentId = Math.guid();
         agent.id = Math.guid();
-        var box = $('<div tabindex=0>').attr('id', agent.id).addClass('agent').html('<small><span>Agent</span><br/><span>' + agent.name + '</span></small></div>');
+        var box = $('<div tabindex="-1">').attr('id', agent.id).addClass('agent').html('<small><span>Agent</span><br/><span>' + agent.name + '</span></small></div>');
         $("#canvas").append(box);
         $("#" + agent.id).data("agent", agent);
         FLUME.addAgentToConfig(agent);
@@ -204,13 +227,14 @@ FLUME.connect = (function($, _, jsPlumb) {
         });
     }; //End createAgent()
 
-    $("#canvas").on("keyup", ".agent", function(e) {
-        console.log("firing keyup");
-        if (e.keyCode == 46 && $(this).hasClass("selectedNode")) {
+    $("#canvas").on("keyup.agentDelete", ".agent", function(e) {
+        //console.log(this);
+        if ((e.keyCode == 46 || e.keyCode == 8) && $(this).hasClass("selectedNode")) {
             FLUME.removeAgentFromConfig(this.id); //remove node and any connections from Agent
             jsPlumb.remove($(this));
         }
     });
+
 
     /**
      *	Create a New Node
@@ -311,7 +335,7 @@ FLUME.connect = (function($, _, jsPlumb) {
              *	Node Keyup Handler
              *
              **/
-            $("#" + daNode.id).keyup(function(e) {
+            $("#" + daNode.id).on("keyup.nodeDelete", function(e) {
                 if ((e.keyCode == 8 || e.keyCode == 46) && $(this).hasClass("selectedNode")) {
                     var parentAgent = $("#" + daNode.id).parent().data("agent"); //Get the parent agent of this node
                     FLUME.removeNodeFromAgent(parentAgent, daNode); //remove node and any connections from Agent
@@ -339,28 +363,6 @@ FLUME.connect = (function($, _, jsPlumb) {
             if (nodeRight > agentRight) {
                 $("#" + agent.id).width($("#" + agent.id).width() + ((nodeRight - agentRight) * 1.15));
             }
-            /**
-            			$("#" + daNode.id).parent().on("resize", function(e, ui) {
-            				var left = 0, top = 0, outerWidth = 79, outerHeight = 57;
-            				$(this).children(".node").each(function(index){
-            					console.log($(this).position().left + "/" + $(this).outerHeight(true) + "/" + $(this).width());
-            					if($(this).position().left > left)
-            						left = $(this).position().left;
-            					if($(this).position().top > top)
-            						top = $(this).position().top;
-            				});
-            				//console.log($("#" + daNode.id).outerWidth(true));
-            				var minWidth = left + (outerWidth * 1.2);
-            				var minHeight = top + (outerHeight * 1.2);
-            				//var minWidth = $("#" + daNode.id).position().left + ($("#" + daNode.id).outerWidth(true) * 1.2); //Error Here
-            				//var minHeight = $("#" + daNode.id).position().top + ($("#" + daNode.id).outerHeight(true) * 1.2);
-            				//console.log(minWidth);
-            				$("#" + daNode.id).parent().resizable("option", "minWidth", minWidth);
-            				$("#" + daNode.id).parent().resizable("option", "minHeight", minHeight);
-            				//get the left and bottom of the farthest most element
-            				//And set as min width and min height
-            			});
-            **/
             writeConfig(agent);
         }
     }; // End createNode()
@@ -370,6 +372,8 @@ FLUME.connect = (function($, _, jsPlumb) {
      *
      **/
     var setSelectedAgent = function(agent) {
+        jsPlumb.select().removeClass("selectedConnector");
+        document.documentElement.removeEventListener("keyup", removeConnection);
         $(".selectedNode").toggleClass("selectedNode").removeClass("active");
         $("#" + agent.id).addClass("selectedNode");
         $("#nodePropertyPanel").html(layoutProperties(agent));
@@ -389,6 +393,8 @@ FLUME.connect = (function($, _, jsPlumb) {
      *
      **/
     var setSelectedNode = function(node) {
+        jsPlumb.select().removeClass("selectedConnector");
+        document.documentElement.removeEventListener("keyup", removeConnection);
         $(".selectedNode").toggleClass("selectedNode").removeClass("active");
         $("#" + node.id).addClass("selectedNode").addClass("active");
         //Bind a delete keypress event to it to delete it
@@ -478,7 +484,7 @@ FLUME.connect = (function($, _, jsPlumb) {
 							*/
                             var tNode = FLUME.getNodeById(agent.connections[node.id][i]);
                             //console.log(tNode);
-                            if (tNode.category === "channels".toLowerCase()) {
+                            if (tNode.category === "channels".toLowerCase()) { //ERROR
                                 for (var n = 0; n < agent.connections[node.id].length; n++) {
                                     //console.log(node.name + ": " + tNode.category);
                                     //console.log(agent.name + "." + node.category + "." + node.name + "." + tNode.category + " = " + tNode.name);

@@ -1,0 +1,50 @@
+{
+    "name": "syslogTCPSource",
+    "id": "",
+    "printName": "Syslog TCP",
+    "description": "Reads syslog data and generate Flume events. The UDP source treats an entire message as a single event. The TCP sources create a new event for each string of characters separated by a newline (‘n’).  Required properties are in bold.",
+    "type": "syslogtcp",
+    "category": "sources",
+    "configProperties": {
+        "host": {
+            "name": "host",
+            "printName": "Host",
+            "value": "",
+            "valueType": "String",
+            "required": true,
+            "description": "Host name or IP address to bind to"
+        },
+        "port": {
+            "name": "port",
+            "printName": "Port",
+            "value": "",
+            "valueType": "String",
+            "required": true,
+            "description": "Port # to bind to"
+        },
+        "eventSize": {
+            "name": "eventSize",
+            "printName": "Event Size",
+            "value": 2500,
+            "valueType": "Number",
+            "required": false,
+            "description": "Maximum size of a single event line, in bytes"
+        },
+        "keepFields": {
+            "name": "keepFields",
+            "printName": "Keep Fields",
+            "value": false,
+            "valueType": "Boolean",
+            "required": false,
+            "description": "Setting this to true will preserve the Priority, Timestamp and Hostname in the body of the event."
+        },
+        "selectorType": {
+            "name": "selector.type",
+            "printName": "Selector Type",
+            "value": "replicating",
+            "valueType": "String",
+            "required": false,
+            "description": "replicating or multiplexing"
+        }
+    }
+}

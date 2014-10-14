@@ -8,7 +8,7 @@
     "configProperties": {
         "hostname": {
             "name": "hostname",
-            "printName": "Port",
+            "printName": "Hostname",
             "value": "",
             "valueType": "String",
             "required": true,
@@ -40,7 +40,7 @@
         },
         "requestTimeout": {
             "name": "request-timeout",
-            "printName": "Connect Timeout",
+            "printName": "Request Timeout",
             "value": 20000,
             "valueType": "Number",
             "required": false,

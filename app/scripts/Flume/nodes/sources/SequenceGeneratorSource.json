@@ -1,0 +1,26 @@
+{
+    "name": "sequenceGeneratorSource",
+    "id": "",
+    "printName": "Sequence Generator",
+    "description": "A simple sequence generator that continuously generates events with a counter that starts from 0 and increments by 1. Useful mainly for testing. Required properties are in bold.",
+    "type": "seq",
+    "category": "sources",
+    "configProperties": {
+        "selectorType": {
+            "name": "selector.type",
+            "printName": "Selector Type",
+            "value": "replicating",
+            "valueType": "String",
+            "required": true,
+            "description": "replicating or multiplexing"
+        },
+        "batchSize": {
+            "name": "batchSize",
+            "printName": "Batch Size",
+            "value": 1,
+            "valueType": "Number",
+            "required": true,
+            "description": ""
+        }
+    }
+}

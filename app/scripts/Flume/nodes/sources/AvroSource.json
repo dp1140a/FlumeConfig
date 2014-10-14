@@ -1,7 +1,7 @@
 {
-    "name": "myAvroSource",
+    "name": "avroSource",
     "id": "",
-    "printName": "Avro Source",
+    "printName": "Avro",
     "description": "Listens on Avro port and receives events from external Avro client streams. When paired with the built-in Avro Sink on another (previous hop) Flume agent, it can create tiered collection topologies. Required properties are in bold.",
     "type": "avro",
     "category": "sources",

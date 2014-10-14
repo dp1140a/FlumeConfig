@@ -1,0 +1,98 @@
+{
+    "name": "multiportSyslogTCPSource",
+    "id": "",
+    "printName": "Multiport Syslog TCP",
+    "description": "This is a newer, faster, multi-port capable version of the Syslog TCP source. Note that the ports configuration setting has replaced port. Multi-port capability means that it can listen on many ports at once in an efficient manner. This source uses the Apache Mina library to do that. Provides support for RFC-3164 and many common RFC-5424 formatted messages. Also provides the capability to configure the character set used on a per-port basis.",
+    "type": "multiport_syslogtcp",
+    "category": "sources",
+    "configProperties": {
+        "host": {
+            "name": "host",
+            "printName": "Host",
+            "value": "",
+            "valueType": "String",
+            "required": true,
+            "description": "Host name or IP address to bind to"
+        },
+        "ports": {
+            "name": "port",
+            "printName": "Port",
+            "value": "",
+            "valueType": "String",
+            "required": true,
+            "description": "Space-separated list (one or more) of ports to bind to."
+        },
+        "eventSize": {
+            "name": "eventSize",
+            "printName": "Event Size",
+            "value": 2500,
+            "valueType": "Number",
+            "required": false,
+            "description": "Maximum size of a single event line, in bytes"
+        },
+        "keepFields": {
+            "name": "keepFields",
+            "printName": "Keep Fields",
+            "value": false,
+            "valueType": "Boolean",
+            "required": false,
+            "description": "Setting this to true will preserve the Priority, Timestamp and Hostname in the body of the event."
+        },
+        "portHeader": {
+            "name": "portHeader",
+            "printName": "Keep Fields",
+            "value": "",
+            "valueType": "String",
+            "required": false,
+            "description": "If specified, the port number will be stored in the header of each event using the header name specified here. This allows for interceptors and channel selectors to customize routing logic based on the incoming port."
+        },
+        "charsetDefault": {
+            "name": "charset.default",
+            "printName": "Default Charset",
+            "value": "UTF-8",
+            "valueType": "String",
+            "required": false,
+            "description": "Default character set used while parsing syslog events into strings."
+        },
+        "charsetPort": {
+            "name": "charset.port",
+            "printName": "Charset Port [BROKEN]",
+            "value": "",
+            "valueType": "String",
+            "required": false,
+            "description": "[BROKEN - DO NOT USE]Character set is configurable on a per-port basis."
+        },
+        "batchSize": {
+            "name": "batchSize",
+            "printName": "Batch Size",
+            "value": 100,
+            "valueType": "Number",
+            "required": false,
+            "description": "Maximum number of events to attempt to process per request loop. Using the default is usually fine"
+        },
+        "readBuffeSize": {
+            "name": "readBufferSize",
+            "printName": "Read Buffer Size",
+            "value": 1024,
+            "valueType": "Number",
+            "required": false,
+            "description": "Size of the internal Mina read buffer. Provided for performance tuning. Using the default is usually fine."
+        },
+        "numProcessors": {
+            "name": "numProcessors",
+            "printName": "Num Processors",
+            "value": "",
+            "valueType": "String",
+            "required": false,
+            "description": "Number of processors available on the system for use while processing messages. Default is to auto-detect # of CPUs using the Java Runtime API. Mina will spawn 2 request-processing threads per detected CPU, which is often reasonable."
+        },
+        "selectorType": {
+            "name": "selector.type",
+            "printName": "Selector Type",
+            "value": "replicating",
+            "valueType": "String",
+            "required": false,
+            "description": "replicating or multiplexing"
+        }
+    }
+}

@@ -1,0 +1,82 @@
+{
+    "name": "JMSSource",
+    "id": "",
+    "printName": "JMS",
+    "description": "JMS Source reads messages from a JMS destination such as a queue or topic. Being a JMS application it should work with any JMS provider but has only been tested with ActiveMQ. The JMS source provides configurable batch size, message selector, user/pass, and message to flume event converter. Note that the vendor provided JMS jars should be included in the Flume classpath using plugins.d directory (preferred), –classpath on command line, or via FLUME_CLASSPATH variable in flume-env.sh.  Required properties are in bold.",
+    "type": "jms",
+    "category": "sources",
+    "configProperties": {
+        "initialContextFactory": {
+            "name": "initialContextFactory",
+            "printName": "Initial Context Factory",
+            "value": "",
+            "valueType": "String",
+            "required": true,
+            "description": "Inital Context Factory, e.g: org.apache.activemq.jndi.ActiveMQInitialContextFactory"
+        },
+        "connectionFactory": {
+            "name": "connectionFactory",
+            "printName": "Connection Factory",
+            "value": "",
+            "valueType": "String",
+            "required": true,
+            "description": "The JNDI name the connection factory shoulld appear as"
+        },
+        "providerURL": {
+            "name": "providerURL",
+            "printName": "Provider URL",
+            "value": "",
+            "valueType": "String",
+            "required": true,
+            "description": "The JMS provider URL"
+        },
+        "destinationName": {
+            "name": "destinationName",
+            "printName": "Destination Name",
+            "value": "",
+            "valueType": "String",
+            "required": true,
+            "description": "The Destination Name"
+        },
+        "destinationType": {
+            "name": "destinationType",
+            "printName": "Destination Type",
+            "value": "",
+            "valueType": "String",
+            "required": true,
+            "description": "Destination type (QUEUE or TOPIC)"
+        },
+        "messageSelector": {
+            "name": "messageSelector",
+            "printName": "Message Selector",
+            "value": "",
+            "valueType": "String",
+            "required": false,
+            "description": "Message selector to use when creating the consumer"
+        },
+        "userName": {
+            "name": "userName",
+            "printName": "Username",
+            "value": "",
+            "valueType": "String",
+            "required": false,
+            "description": "Username for the destination/provider"
+        },
+        "passwordFile": {
+            "name": "passwordFile",
+            "printName": "Password File",
+            "value": "",
+            "valueType": "String",
+            "required": false,
+            "description": "File containing the password for the destination/provider"
+        },
+        "batchSize": {
+            "name": "batchSize",
+            "printName": "Batch Size",
+            "value": 100,
+            "valueType": "Number",
+            "required": false,
+            "description": "Number of messages to consume in one batch"
+        }
+    }
+}

@@ -249,7 +249,14 @@ FLUME = (function($, _) {
         **/
         else if (sourceNode.category === "channels".toLowerCase()) {
             if (targetNode.category === "sinks".toLowerCase()) {
+                /**
+                * I dont think a sink can connect to a source on the same agent
+                * If target is a source add in a check to see if its on another agent
+                **/
                 return true;
+            }
+            else{
+                throw new Error("A Channel can only connect to an Interceptor or Sink");
             }
         }
 
@@ -260,6 +267,9 @@ FLUME = (function($, _) {
         else if (sourceNode.category === "sinks".toLowerCase()) {
             if (targetNode.category === "sources".toLowerCase()) {
                 return true;
+            }
+            else{
+                throw new Error("A Sink can only connect to a Source");
             }
         }
 

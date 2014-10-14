@@ -1,7 +1,7 @@
 {
 	"name": "execSource",
 	"id": "",
-	"printName": "Exec Source",
+	"printName": "Exec",
 	"description": "Exec source runs a given Unix command on start-up and expects that process to continuously produce data on standard out (stderr is simply discarded, unless property logStdErr is set to true). If the process exits for any reason, the source also exits and will produce no further data. This means configurations such as cat [named pipe] or tail -F [file] are going to produce the desired results where as date will probably not - the former two commands produce streams of data where as the latter produces a single event and exits.",
 	"type": "exec",
 	"category": "sources",

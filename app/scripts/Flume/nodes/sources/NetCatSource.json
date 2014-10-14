@@ -1,0 +1,50 @@
+{
+    "name": "netcatSource",
+    "id": "",
+    "printName": "NetCat Source",
+    "description": "A netcat-like source that listens on a given port and turns each line of text into an event. Acts like nc -k -l [host] [port]. In other words, it opens a specified port and listens for data. The expectation is that the supplied data is newline separated text. Each line of text is turned into a Flume event and sent via the connected channel. Required properties are in bold.",
+    "type": "netcat",
+    "category": "sources",
+    "configProperties": {
+        "bind": {
+            "name": "bind",
+            "printName": "Bind",
+            "value": "",
+            "valueType": "String",
+            "required": true,
+            "description": "Host name or IP address to bind to"
+        },
+        "port": {
+            "name": "port",
+            "printName": "Port",
+            "value": "",
+            "valueType": "String",
+            "required": true,
+            "description": "Port # to bind to"
+        },
+        "maxLineLength": {
+            "name": "maxLineLength",
+            "printName": "Max Line Length",
+            "value": 512,
+            "valueType": "Number",
+            "required": false,
+            "description": "Max line length per event body (in bytes)"
+        },
+        "ackEveryEvent": {
+            "name": "ack-every-event",
+            "printName": "Max Line Length",
+            "value": true,
+            "valueType": "Boolean",
+            "required": false,
+            "description": "Respond with an “OK” for every event received"
+        },
+        "selectorType": {
+            "name": "selector.type",
+            "printName": "Selector Type",
+            "value": "replicating",
+            "valueType": "Strng",
+            "required": false,
+            "description": "replicating or multiplexing"
+        }
+    }
+}

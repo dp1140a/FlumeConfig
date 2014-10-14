@@ -1,9 +1,9 @@
 {
-	"nodes": {
-		"sources": ["AvroSource.json", "ExecSource.json", "ThriftSource.json"],
-		"sinks": ["LoggerSink.json", "ThriftSink.json"],
-		"channels": ["JDBCChannel.json", "MemoryChannel.json"],
-		"interceptors": ["TimestampInterceptor.json"],
-		"selectors": ["ReplicatingChannelSelector.json"]
-	}
+    "nodes": {
+        "sources": ["AvroSource.json", "ExecSource.json", "ThriftSource.json", "JMSSource.json", "SpoolDir.json", "TwitterSource.json", "NetCatSource.json", "SequenceGeneratorSource.json", "SyslogTCPSource.json", "MultiPortSyslogSource.json", "SyslogUDPSource.json", "HTTPSource.json"],
+        "sinks": ["HDFSSink.json", "LoggerSink.json", "ThriftSink.json"],
+        "channels": ["JDBCChannel.json", "MemoryChannel.json"],
+        "interceptors": ["TimestampInterceptor.json"],
+        "selectors": ["ReplicatingChannelSelector.json"]
+    }
 }

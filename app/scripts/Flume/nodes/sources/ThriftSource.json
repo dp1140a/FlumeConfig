@@ -1,7 +1,7 @@
 {
-    "name": "myThriftSource",
+    "name": "thriftSource",
     "id": "",
-    "printName": "Thrift Source",
+    "printName": "Thrift",
     "description": "Listens on Thrift port and receives events from external Thrift client streams. When paired with the built-in ThriftSink on another (previous hop) Flume agent, it can create tiered collection topologies.",
     "type": "thrift",
     "category": "sources",

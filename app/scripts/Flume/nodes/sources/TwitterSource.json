@@ -1,0 +1,58 @@
+{
+    "name": "twitterSource",
+    "id": "",
+    "printName": "Twitter Firehose",
+    "description": "Experimental source that connects via Streaming API to the 1% sample twitter firehose, continously downloads tweets, converts them to Avro format and sends Avro events to a downstream Flume sink. Requires the consumer and access tokens and secrets of a Twitter developer account. Required properties are in bold.",
+    "type": "org.apache.flume.source.twitter.TwitterSource",
+    "category": "sources",
+    "configProperties": {
+        "consumerKey": {
+            "name": "consumerKey",
+            "printName": "Consumer Key",
+            "value": "",
+            "valueType": "String",
+            "required": true,
+            "description": "OAuth consumer key"
+        },
+        "consumerSecret": {
+            "name": "consumerSecret",
+            "printName": "Consumer Secret",
+            "value": "",
+            "valueType": "String",
+            "required": true,
+            "description": "OAuth consumer secret"
+        },
+        "accessToken": {
+            "name": "accessToken",
+            "printName": "Access Token",
+            "value": "",
+            "valueType": "String",
+            "required": true,
+            "description": "OAuth access token"
+        },
+        "accessTokenSecret": {
+            "name": "accessTokenSecret",
+            "printName": "Access Token Secret",
+            "value": "",
+            "valueType": "String",
+            "required": true,
+            "description": "OAuth access token secret"
+        },
+        "maxBatchSize": {
+            "name": "maxBatchSize",
+            "printName": "Max Batch Size",
+            "value": 1000,
+            "valueType": "Number",
+            "required": false,
+            "description": "Maximum number of twitter messages to put in a single batch"
+        },
+        "maxBatchDurationMillis": {
+            "name": "maxBatchDurationMillis",
+            "printName": "Max Batch Duration Millis",
+            "value": 1000,
+            "valueType": "Number",
+            "required": false,
+            "description": "Maximum number of milliseconds to wait before closing a batch"
+        }
+    }
+}

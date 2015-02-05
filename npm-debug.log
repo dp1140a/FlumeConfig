@@ -1,0 +1,133 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'c:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install' ]
+2 info using npm@1.3.11
+3 info using node@v0.10.20
+4 warn package.json flumeconfig@0.1.0 No repository field.
+5 verbose readDependencies using package.json deps
+6 verbose install where, deps [ 'd:\\Users\\Dave\\Dropbox\\Git\\FlumeConfig',
+6 verbose install   [ 'grunt',
+6 verbose install     'grunt-autoprefixer',
+6 verbose install     'grunt-bower-install',
+6 verbose install     'grunt-bump',
+6 verbose install     'grunt-concurrent',
+6 verbose install     'grunt-contrib-clean',
+6 verbose install     'grunt-contrib-compass',
+6 verbose install     'grunt-contrib-concat',
+6 verbose install     'grunt-contrib-connect',
+6 verbose install     'grunt-contrib-copy',
+6 verbose install     'grunt-contrib-cssmin',
+6 verbose install     'grunt-contrib-htmlmin',
+6 verbose install     'grunt-contrib-imagemin',
+6 verbose install     'grunt-contrib-jasmine',
+6 verbose install     'grunt-contrib-jshint',
+6 verbose install     'grunt-contrib-uglify',
+6 verbose install     'grunt-contrib-watch',
+6 verbose install     'grunt-rev',
+6 verbose install     'grunt-svgmin',
+6 verbose install     'grunt-usemin',
+6 verbose install     'jshint-stylish',
+6 verbose install     'load-grunt-tasks',
+6 verbose install     'time-grunt' ] ]
+7 info preinstall flumeconfig@0.1.0
+8 warn package.json grunt-contrib-htmlmin@0.1.3 No README data
+9 verbose readDependencies using package.json deps
+10 verbose already installed skipping grunt@>=0.4.1 d:\Users\Dave\Dropbox\Git\FlumeConfig
+11 verbose already installed skipping grunt-autoprefixer@>=0.2.0 d:\Users\Dave\Dropbox\Git\FlumeConfig
+12 verbose already installed skipping grunt-bower-install@~0.5.0 d:\Users\Dave\Dropbox\Git\FlumeConfig
+13 verbose already installed skipping grunt-bump@0.0.16 d:\Users\Dave\Dropbox\Git\FlumeConfig
+14 verbose already installed skipping grunt-concurrent@>=0.3.0 d:\Users\Dave\Dropbox\Git\FlumeConfig
+15 verbose already installed skipping grunt-contrib-clean@>=0.5.0 d:\Users\Dave\Dropbox\Git\FlumeConfig
+16 verbose already installed skipping grunt-contrib-compass@>=0.5.0 d:\Users\Dave\Dropbox\Git\FlumeConfig
+17 verbose already installed skipping grunt-contrib-concat@>=0.3.0 d:\Users\Dave\Dropbox\Git\FlumeConfig
+18 verbose already installed skipping grunt-contrib-connect@>=0.5.0 d:\Users\Dave\Dropbox\Git\FlumeConfig
+19 verbose already installed skipping grunt-contrib-copy@>=0.4.1 d:\Users\Dave\Dropbox\Git\FlumeConfig
+20 verbose already installed skipping grunt-contrib-cssmin@>=0.6.0 d:\Users\Dave\Dropbox\Git\FlumeConfig
+21 verbose already installed skipping grunt-contrib-htmlmin@>=0.1.3 d:\Users\Dave\Dropbox\Git\FlumeConfig
+22 verbose already installed skipping grunt-contrib-imagemin@>=0.4.0 d:\Users\Dave\Dropbox\Git\FlumeConfig
+23 verbose already installed skipping grunt-contrib-jasmine@>=0.5.2 d:\Users\Dave\Dropbox\Git\FlumeConfig
+24 verbose already installed skipping grunt-contrib-jshint@>=0.6.3 d:\Users\Dave\Dropbox\Git\FlumeConfig
+25 verbose already installed skipping grunt-contrib-uglify@>=0.2.0 d:\Users\Dave\Dropbox\Git\FlumeConfig
+26 verbose already installed skipping grunt-contrib-watch@>=0.5.2 d:\Users\Dave\Dropbox\Git\FlumeConfig
+27 verbose already installed skipping grunt-rev@>=0.1.0 d:\Users\Dave\Dropbox\Git\FlumeConfig
+28 verbose already installed skipping grunt-svgmin@>=0.2.0 d:\Users\Dave\Dropbox\Git\FlumeConfig
+29 verbose already installed skipping grunt-usemin@>=2.0.0 d:\Users\Dave\Dropbox\Git\FlumeConfig
+30 verbose cache add [ 'jshint-stylish@>-0.1.3', null ]
+31 verbose cache add name=undefined spec="jshint-stylish@>-0.1.3" args=["jshint-stylish@>-0.1.3",null]
+32 verbose parsed url { protocol: null,
+32 verbose parsed url   slashes: null,
+32 verbose parsed url   auth: null,
+32 verbose parsed url   host: null,
+32 verbose parsed url   port: null,
+32 verbose parsed url   hostname: null,
+32 verbose parsed url   hash: null,
+32 verbose parsed url   search: null,
+32 verbose parsed url   query: null,
+32 verbose parsed url   pathname: 'jshint-stylish@%3E-0.1.3',
+32 verbose parsed url   path: 'jshint-stylish@%3E-0.1.3',
+32 verbose parsed url   href: 'jshint-stylish@%3E-0.1.3' }
+33 verbose cache add name="jshint-stylish" spec=">-0.1.3" args=["jshint-stylish",">-0.1.3"]
+34 verbose parsed url { protocol: null,
+34 verbose parsed url   slashes: null,
+34 verbose parsed url   auth: null,
+34 verbose parsed url   host: null,
+34 verbose parsed url   port: null,
+34 verbose parsed url   hostname: null,
+34 verbose parsed url   hash: null,
+34 verbose parsed url   search: null,
+34 verbose parsed url   query: null,
+34 verbose parsed url   pathname: '%3E-0.1.3',
+34 verbose parsed url   path: '%3E-0.1.3',
+34 verbose parsed url   href: '%3E-0.1.3' }
+35 verbose addNamed [ 'jshint-stylish', '>-0.1.3' ]
+36 verbose addNamed [ null, null ]
+37 verbose already installed skipping load-grunt-tasks@>=0.1.0 d:\Users\Dave\Dropbox\Git\FlumeConfig
+38 verbose already installed skipping time-grunt@>=0.1.1 d:\Users\Dave\Dropbox\Git\FlumeConfig
+39 silly lockFile 59c78138-jshint-stylish-0-1-3 jshint-stylish@>-0.1.3
+40 verbose lock jshint-stylish@>-0.1.3 D:\Users\Dave\AppData\Roaming\npm-cache\59c78138-jshint-stylish-0-1-3.lock
+41 info addNameTag [ 'jshint-stylish', '>-0.1.3' ]
+42 verbose url raw jshint-stylish
+43 verbose url resolving [ 'https://registry.npmjs.org/', './jshint-stylish' ]
+44 verbose url resolved https://registry.npmjs.org/jshint-stylish
+45 info trying registry request attempt 1 at 16:59:05
+46 verbose etag "F5LN3PS98K5WAVJHIXY4JP44O"
+47 http GET https://registry.npmjs.org/jshint-stylish
+48 http 200 https://registry.npmjs.org/jshint-stylish
+49 silly registry.get cb [ 200,
+49 silly registry.get   { date: 'Tue, 04 Nov 2014 00:59:05 GMT',
+49 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+49 silly registry.get     etag: '"3YUQ8V3FZXD1ESQZGP3MK7OKN"',
+49 silly registry.get     'content-type': 'application/json',
+49 silly registry.get     'cache-control': 'max-age=60',
+49 silly registry.get     'content-length': '13566',
+49 silly registry.get     'accept-ranges': 'bytes',
+49 silly registry.get     via: '1.1 varnish',
+49 silly registry.get     age: '29',
+49 silly registry.get     'x-served-by': 'cache-sjc3121-SJC',
+49 silly registry.get     'x-cache': 'HIT',
+49 silly registry.get     'x-cache-hits': '1',
+49 silly registry.get     'x-timer': 'S1415062745.279082,VS0,VE0',
+49 silly registry.get     vary: 'Accept',
+49 silly registry.get     'keep-alive': 'timeout=10, max=50',
+49 silly registry.get     connection: 'Keep-Alive' } ]
+50 silly lockFile 59c78138-jshint-stylish-0-1-3 jshint-stylish@>-0.1.3
+51 silly lockFile 59c78138-jshint-stylish-0-1-3 jshint-stylish@>-0.1.3
+52 error Error: No compatible version found: jshint-stylish@'>-0.1.3'
+52 error Valid install targets:
+52 error ["0.1.0","0.1.1","0.1.2","0.1.3","0.1.4","0.1.5","0.2.0","0.3.0","0.4.0","1.0.0"]
+52 error     at installTargetsError (c:\Program Files\nodejs\node_modules\npm\lib\cache.js:719:10)
+52 error     at c:\Program Files\nodejs\node_modules\npm\lib\cache.js:638:10
+52 error     at saved (c:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\get.js:142:7)
+52 error     at c:\Program Files\nodejs\node_modules\npm\node_modules\graceful-fs\polyfills.js:133:7
+52 error     at Object.oncomplete (fs.js:107:15)
+53 error If you need help, you may report this log at:
+53 error     <http://github.com/isaacs/npm/issues>
+53 error or email it to:
+53 error     <npm-@googlegroups.com>
+54 error System Windows_NT 6.1.7601
+55 error command "c:\\Program Files\\nodejs\\node.exe" "c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install"
+56 error cwd d:\Users\Dave\Dropbox\Git\FlumeConfig
+57 error node -v v0.10.20
+58 error npm -v 1.3.11
+59 verbose exit [ 1, true ]

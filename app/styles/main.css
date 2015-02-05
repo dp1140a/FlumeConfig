@@ -1,4 +1,13 @@
 
+._jsPlumb_drag_select * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;    
+}  
+
 .my-fluid-container {
     padding-left: 15px;
     padding-right: 15px;
@@ -16,7 +25,7 @@
     border: 1px solid #CCC;
     border-radius: 4px;
     height: 480px;
-    position: relative;
+
     outline: 0;
 
 }
@@ -70,7 +79,7 @@
     /*line-height:5em;*/
     text-align:center;
     z-index:20;
-    position: absolute;
+    position:  absolute !important;
     background-color:#dddddd;
     color:black;
     font-family:helvetica;
@@ -160,14 +169,15 @@
     border-radius:.5em;
     -webkit-border-radius:.5em;
     opacity:0.8;
-    height: 2em;
+    height: 35px; 
     text-align:center;
     color:black;
     font-family:helvetica;
-    margin: 2px;
+    font-size:.7em;
+    margin: 1px;
     vertical-align: middle;
     outline: 0 !important;
-    width: 100%;
+    width: 31%;
 }
 
 .myButton {
@@ -200,7 +210,7 @@
 }
 
 .sources:hover, .sources.active{
-     background-color:#468ccf;
+     background-color:#346789;
      border:2px solid #9FC5E8; 
      color: white;
 }
@@ -211,14 +221,14 @@
 }
 
 .channels:hover,.channels.active {
-    background-color: #528009;
+    background-color: #6AA84F;
     border:2px solid #B6D7A8; 
     color: white;
 }
 
 .sinks {
     background-color:#EA9999;
-    border:2px solid #CC0000;
+    border:2px solid #b23e35;
 }
 
 .sinks:hover, .sinks.active {

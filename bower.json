@@ -11,10 +11,10 @@
 		"tests"
 	],
 	"dependencies": {
-		"jquery-ui": "~1.10.3",
-		"jsPlumb": "~1.5.3",
-		"underscore": "~1.5.2",
-		"bootstrap": "~3.0.3"
+		"jquery-ui": "latest",
+		"jsPlumb": "~1.5.5",
+		"underscore": "latest",
+		"bootstrap": "latest"
 	},
 	"devDependencies": {}
 }

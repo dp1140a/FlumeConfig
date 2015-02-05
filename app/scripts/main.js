@@ -22,7 +22,7 @@ $(document).ready(function() {
         //console.log(nodeType);
         for (nodeName in FLUME.nodes[nodeType]) {
             var node = FLUME.nodes[nodeType][nodeName];
-            btn = "<button class='nodeButton " + node.category + "' category= '" + node.category + "' type='" + node.type + "'>" + node.printName + "</button>";
+            btn = "<button class='nodeButton " + node.category + "' category= '" + node.category + "' type='" + node.type + "' alt='" + node.printName + "'>" + node.printName + "</button>";
             //btn = "<div class='nodeButton " + node.category + "' category='" + node.category + "' type='" + node.type +"'><span style='vertical-align: middle;'>" + node.printName + "</span></div>";
             switch (node.category) {
                 case "sources":

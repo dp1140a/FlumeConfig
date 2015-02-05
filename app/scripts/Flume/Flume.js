@@ -22,6 +22,7 @@ FLUME = (function($, _) {
      **/
     var flumeConfig = {};
 
+
     //Private Methods
     var namespace = function(nsString) {
         var parts = nsString.split('.'),
@@ -99,8 +100,10 @@ FLUME = (function($, _) {
         return $.extend(true, {}, FLUME.nodes[nodeCategory][nodeType]);
     };
 
-    var getAgentInstance = function() {
-        var agent = $.extend(true, {}, agents);
+    var getAgentInstance = function(agent) {
+        if(agent === undefined){
+            agent = $.extend(true, {}, agents);
+        }
 
         agent.addConnection = function(sourceNode, targetNode) {
             /**
@@ -132,11 +135,11 @@ FLUME = (function($, _) {
     };
 
     var getAgentById = function(agentId) {
-        return this.flumeConfig[agentId];
+        return flumeConfig[agentId];
     };
 
     var addAgentToConfig = function(agent) {
-        this.flumeConfig[agent.id] = agent;
+        flumeConfig[agent.id] = agent;
     };
 
     var addNodeToAgent = function(agent, node) {
@@ -151,7 +154,7 @@ FLUME = (function($, _) {
     };
 
     var removeAgentFromConfig = function(agentId) {
-        delete this.flumeConfig[agentId];
+        delete flumeConfig[agentId];
     }
 
     var getNodeById = function(nodeId) {
@@ -174,17 +177,36 @@ FLUME = (function($, _) {
         }
     };
 
+    var getAgentNodes = function(agentId){
+        return flumeConfig[agentId].nodes;
+    }
+
+    var getAgentSources = function(agentId){
+        return flumeConfig[agentId].nodes.sources;
+    }
+
+    var getAgentChannels = function(agentId){
+        return flumeConfig[agentId].nodes.channels;
+    }
+
+    var getAgentSinks = function(agentId){
+        return flumeConfig[agentId].nodes.sinks;
+    }
+
+    var getAgentInterceptors = function(agentId){
+        return flumeConfig[agentId].nodes.interceptors;
+    }
+
     var getAgents = function() {
         return flumeConfig;
     };
 
     var setAgents = function(agents){
-        this.flumeConfig = agents;
+        flumeConfig = agents;
     }
 
     var nullAgents = function(){
-        this.flumeConfig = null;
-        this.flumeConfig = {}
+        flumeConfig = {};
     }
 
     var connectNodes = function(sourceNode, targetNode) {
@@ -317,10 +339,13 @@ FLUME = (function($, _) {
         addAgentToConfig: addAgentToConfig,
         addNodeToAgent: addNodeToAgent,
         doesConnectionExist: doesConnectionExist,
-        flumeConfig: flumeConfig,
         getAgentById: getAgentById,
+        getAgentChannels: getAgentChannels,
         getAgentInstance: getAgentInstance,
+        getAgentNodes: getAgentNodes,
         getAgents: getAgents,
+        getAgentSinks: getAgentSinks,
+        getAgentSources: getAgentSources,
         getNodeById: getNodeById,
         getNodeInstance: getNodeInstance,
         removeNodeFromAgent: removeNodeFromAgent,
